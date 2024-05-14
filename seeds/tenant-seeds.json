@@ -1,0 +1,34 @@
+[
+   {
+      "tenant_name": "Gary",
+      "tenant_email": "email@gmail.com",
+      "tenant_password": "tenant",
+      "apt_number": 404
+   },
+   {
+      "tenant_name": "Katy",
+      "tenant_email": "sample@gmail.com",
+      "tenant_password": "tenant",
+      "apt_number": 205
+   },
+   {
+      "tenant_name": "Maggie",
+      "tenant_email": "email@gmail.com",
+      "tenant_password": "tenant",
+      "apt_number": 103
+   },
+   {
+      "tenant_name": "Brittany",
+      "tenant_email": "email@gmail.com",
+      "tenant_password": "tenant",
+      "apt_number": 303
+   },
+   {
+      "tenant_name": "Daisy",
+      "tenant_email": "email@gmail.com",
+      "tenant_password": "tenant",
+      "apt_number": 303
+   }
+   
+   
+]
