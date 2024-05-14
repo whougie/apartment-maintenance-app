@@ -4,64 +4,74 @@
 {{#each users as |user| }}
 <div class="row align-center mb-5">
     <div class="col-md-6">
-        <h2>{{{get_emoji}}} {{user.name}}</h2>
+        <h2>Welcome! {{user.name}}</h2>
     </div>
     <div class="col-md-6">
         <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
+    </div>
+</div>
+<div>
+    <div class="form-group">
+        <button class="btn btn-seccondary" type="issue"> maintenance help request</button>
+    </div>
+    <div>
+        <h4>Active issues</h4>
+        <div id="active-issues"></div>
+    </div>
+    <div>
+        <h4>Completed issues</h4>
+        <div id="completed-issues"></div>
     </div>
 </div>
 {{/each}}
 
 
 
-{{!-- 
-<div class="form-group">
-    <button class="btn btn-seccondary" type="issue"> maintenance help </button>
-</div>
 
-home page: 
+{{!--
+home page:
 
-   User:
+User:
+partial load of a page
 
-   -Create a new issue button
 
-    -see the issues that have been created on a list/table
+-see the issues that have been created on a list/table
 
-    -see the data of issue (date to fix, status, handyman assigned, issue description)
+-see the data of issue (date to fix, status, handyman assigned, issue description)
 
-  -User
+-User
 
 Ex. Only the user issues
 
-UserId:  whougie   Issue: fix sink, apt 12, status: Not fixed
+UserId: whougie Issue: fix sink, apt 12, status: Not fixed
 
-UserId:  whougie   Issue: fix sink, apt 12, status: Fixed 
+UserId: whougie Issue: fix sink, apt 12, status: Fixed
 
-  -Manager: 17check
+-Manager: 17check (need route to handle logic for manager)
 
-   -see all user issues on list/table
+-see all user issues on list/table
 
-  -create button assigned the handyman
+-create button assigned the handyman
 
-   -see the data of issue (date to fix, status, handyman assigned, issue description)
+-see the data of issue (date to fix, status, handyman assigned, issue description)
 
-  Ex. list all users issues
+Ex. list all users issues
 
-  userId: whougie …
+userId: whougie …
 
-  userId: Kee …
+userId: Kee …
 
-Issue page: 
+Issue page:
 
-  -Displays a form that contains:
+-Displays a form that contains:
 
-  --issue description
+--issue description
 
-– Create a submit button 
-
-
+– Create a submit button
 
 
 
 
- --}}
+
+
+--}}
