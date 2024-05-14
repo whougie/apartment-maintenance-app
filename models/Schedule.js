@@ -1,5 +1,5 @@
-// const { Model, DataTypes } = require('sequilize');
-// const sequilize = require('../config/connection');
+// const { Model, DataTypes } = require('sequelize');
+// const sequelize = require('../config/connection');
 
 // class Schedule extends Model {}
 
@@ -45,7 +45,7 @@
 //     },
 
 //     {
-//         sequilize,
+//         sequelize,
 //         underscored: true,
 //         modelName: 'schedule'
 //     }

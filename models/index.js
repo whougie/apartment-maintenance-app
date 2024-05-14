@@ -12,18 +12,18 @@ Tenant.belongsTo(Apartment, {
 })
 
 Manager.hasMany(Issues, {
-    onDelete: 'SET NULL',
-    foreignKey: 'manager_id'
+    onDelete: 'SET NULL'
+    // foreignKey: 'manager_id'
 })
 
 Tenant.hasMany(Issues, {
-    onDelete: 'SET NULL',
-    foreignKey: 'tenant_id'
+    onDelete: 'SET NULL' //,
+   // foreignKey: 'tenant_id'
 })
 
 Apartment.hasMany(Issues, {
-    onDelete: 'SET NULL',
-    foreignKey: 'apt_id'
+    onDelete: 'SET NULL' //,
+    // foreignKey: 'apt_id'
 })
 
 

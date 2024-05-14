@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequilize');
-const sequilize = require('../config/connection');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Manager extends Model {}
 
@@ -25,7 +25,7 @@ Manager.init(
     },
 
     {
-        sequilize,
+        sequelize,
         underscored: true,
         modelName: 'manager'
     }
