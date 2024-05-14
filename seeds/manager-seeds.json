@@ -1,0 +1,34 @@
+[
+   {
+      "name": "Ozge",
+      "email": "email@gmail.com",
+      "password": "example",
+      "role": "manager"
+   },
+   {
+      "name": "Amy",
+      "email": "sample@gmail.com",
+      "password": "sample",
+      "role": "manager"
+   },
+   {
+      "name": "Whougie",
+      "email": "email@gmail.com",
+      "password": "example",
+      "role": "manager"
+   },
+   {
+      "name": "Kee",
+      "email": "email@gmail.com",
+      "password": "example",
+      "role": "manager"
+   },
+   {
+      "name": "Andrew",
+      "email": "email@gmail.com",
+      "password": "example",
+      "role": "manager"
+   }
+   
+   
+]
