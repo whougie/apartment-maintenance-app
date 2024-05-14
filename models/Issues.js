@@ -10,6 +10,13 @@ Issues.init(
             allowNull: false,
             primaryKey: true,
         },
+        tenant_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'tenant',
+                key: 'id'
+            }
+        },
         room: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -22,10 +29,30 @@ Issues.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        date_scheduled: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        apt_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'apartment',
+                key: 'id'
+            }
+        },
+        manager_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'manager',
+                key: 'id'
+            }
+        }
     },
 
     {
         sequilize,
+        timestamps: false,
+        freezeTableName: true,
         underscored: true,
         modelName: 'issues'
     }
