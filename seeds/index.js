@@ -11,7 +11,7 @@ const scheduleData = require('./schedule-seeds.json');
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const apartments = await Apartment.bulkCreate(apartmentsData);
+  const apartments = await Apartments.bulkCreate(apartmentsData);
   const issues = await Issues.bulkCreate(issuesData);
   const tenants = await Tenants.bulkCreate(tenantsData);
   const mangers = await Managers.bulkCreate(mangersData);
