@@ -10,34 +10,28 @@ const apartmentsData = require('./apartment-seeds.json');
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const apartments = await Apartment.bulkCreate(apartmentsData);
-  const issues = await Issues.bulkCreate(issuesData);
-  const tenants = await Tenant.bulkCreate(tenantsData);
-  const managers = await Manager.bulkCreate(managersData);
+  const apartmentData = await Apartment.bulkCreate(apartmentsData)
+  const apartments = apartmentData.map(apartment => apartment.get({ plain: true }))
 
-  for (const { apt_number } of apartments) {
-   const newApartment = await Apartment.create({
-     id: apt_number,
-   });
- };
+  const tenantData = await Tenant.bulkCreate(tenantsData.map((tenant, index) => { return { ...tenant, apt_id: apartments[index].id } }));
+  const tenants = tenantData.map(tenant => tenant.get({ plain: true }))
 
-   for (const { id } of tenants) {
-      const newTenant = await Apartment.create({ apt_number: apt_number });
-   };
+  const managerData = await Manager.bulkCreate(managersData);
+  const managers = managerData.map(manager => manager.get({ plain: true }))
 
-   
-    for (const { id } of managers) {
-      const newManager = await Manager.create({ id: id });
-    };
-
-    for (const { id } of issues) {
-      const newIssue = await Tenant.create({
-        tenant: tenant_name,
-        room: apt_number,
-      });
-    };
-
-   process.exit(0);
+  const issueData = await Issues.bulkCreate(issuesData.map((issue, index) => {
+    return { ...issue, tenant_id: tenants[index].id, manager_id: managers[index].id }
+  }));
+  const issues = issueData.map(issue => issue.get({plain:true}))
+  
+  // const withApt = await Issues.findAll({include: [{
+  //   model: Tenant,
+  //   include: Apartment
+  //  },
+  // Manager]})
+  // const serial = withApt.map(apt => apt.get({plain:true}))
+  // console.log(serial)
+  process.exit(0);
 };
 
 seedDatabase();
