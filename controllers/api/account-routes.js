@@ -57,4 +57,29 @@ router.get('/issues', async (req, res) => {
   }
 })
 
+function getHandyMan() {
+  const table = [
+    { weight: 1, id: "item1" }, // Element 1
+    { weight: 1, id: "item2" }, // Element 2
+    { weight: 4, id: "item3" }, // Element with a 4 times likelihood
+    { weight: 2, id: "item4" }, // Element 4
+    { weight: 2, id: "item5" },
+  ];
+  const choosenItem = rwc(table);
+  const choosenUnlikely = rwc(table, 100); // The last shall be first
+  const choosenDeterministically = rwc(table, 0);
+console.log (table)
+}
+
+/*const rwc = require("random-weighted-choice");
+const table = [
+  { weight: 1, id: "item1" }, // Element 1
+  { weight: 1, id: "item2" }, // Element 2
+  { weight: 4, id: "item3" }, // Element with a 4 times likelihood
+  { weight: 2, id: "item4" }, // Element 4
+  { weight: 2, id: "item5" },
+];
+const choosenItem = rwc(table);
+const choosenUnlikely = rwc(table, 100); // The last shall be first
+const choosenDeterministically = rwc(table, 0);*/
 module.exports = router;
