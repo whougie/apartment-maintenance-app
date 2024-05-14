@@ -1,26 +1,41 @@
 const sequelize = require('../config/connection');
 
-const { Tenants, Issues, Managers, Apartments, Schedule } = require('../models');
+const { Tenant, Issues, Manager, Apartment } = require('../models');
 
 const tenantsData = require('./tenant-seeds.json');
 const issuesData = require('./issue-seeds.json');
-const mangersData = require('./manager-seeds.json');
+const managersData = require('./manager-seeds.json');
 const apartmentsData = require('./apartment-seeds.json');
-const scheduleData = require('./schedule-seeds.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
   const apartments = await Apartment.bulkCreate(apartmentsData);
   const issues = await Issues.bulkCreate(issuesData);
-  const tenants = await Tenants.bulkCreate(tenantsData);
-  const mangers = await Managers.bulkCreate(mangersData);
-  const schedules = await Schedule.bulkCreate(scheduleData);
+  const tenants = await Tenant.bulkCreate(tenantsData);
+  const managers = await Manager.bulkCreate(managersData);
 
-//   await Dish.bulkCreate(dishData, {
-//     individualHooks: true,
-//     returning: true,
-//   });
+  for (const { apt_number } of apartments) {
+   const newApartment = await Apartment.create({
+     id: apt_number,
+   });
+ };
+
+   for (const { id } of tenants) {
+      const newTenant = await Apartment.create({ apt_number: apt_number });
+   };
+
+   
+    for (const { id } of managers) {
+      const newManager = await Manager.create({ id: id });
+    };
+
+    for (const { id } of issues) {
+      const newIssue = await Tenant.create({
+        tenant: tenant_name,
+        room: apt_number,
+      });
+    };
 
    process.exit(0);
 };
