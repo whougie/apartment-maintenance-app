@@ -18,14 +18,19 @@ Apartment.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        tenant_id: {
-            type: DataTyples.INTEGER,
-            foreignKey: true,
-        }
+        // tenant_id: {
+        //     type: DataTyples.INTEGER,
+        //     references: {
+        //         model: 'tenant',
+        //         key: 'id'
+        //     }
+        // }
     },
 
     {
         sequilize,
+        timestamps: false,
+        freezeTableName: true,
         underscored: true,
         modelName: 'apartment'
     }
