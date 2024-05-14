@@ -1,0 +1,82 @@
+[
+   {
+      "apt_number": 101,
+      "layout": "studio"
+   },
+   {
+      "apt_number": 102,
+      "layout": "1br"
+   },
+   {
+      "apt_number": 103,
+      "layout": "1br"
+   },
+   {
+      "apt_number": 104,
+      "layout": "2br"
+   },
+   {
+      "apt_number": 105,
+      "layout": "2br"
+   },
+   {
+      "apt_number": 201,
+      "layout": "studio"
+   },
+   {
+      "apt_number": 202,
+      "layout": "1br"
+   },
+   {
+      "apt_number": 203,
+      "layout": "1br"
+   },
+   {
+      "apt_number": 204,
+      "layout": "2br"
+   },
+   {
+      "apt_number": 205,
+      "layout": "2br"
+   },
+   {
+      "apt_number": 301,
+      "layout": "1br"
+   },
+   {
+      "apt_number": 302,
+      "layout": "1br"
+   },
+   {
+      "apt_number": 303,
+      "layout": "2br"
+   },
+   {
+      "apt_number": 304,
+      "layout": "2br"
+   },
+   {
+      "apt_number": 305,
+      "layout": "2br"
+   },
+   {
+      "apt_number": 401,
+      "layout": "1br"
+   },
+   {
+      "apt_number": 402,
+      "layout": "2br"
+   },
+   {
+      "apt_number": 403,
+      "layout": "3br"
+   },
+   {
+      "apt_number": 404,
+      "layout": "3br"
+   },
+   {
+      "apt_number": 405,
+      "layout": "3br"
+   }
+]

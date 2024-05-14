@@ -1,33 +1,28 @@
 [
    {
-      "name": "Ozge",
-      "email": "email@gmail.com",
-      "password": "example",
-      "role": "manager"
+      "manager_name": "Ozge",
+      "manager_email": "email@gmail.com",
+      "manager_password": "manager"
    },
    {
-      "name": "Amy",
-      "email": "sample@gmail.com",
-      "password": "sample",
-      "role": "manager"
+      "manager_name": "Amy",
+      "manager_email": "sample@gmail.com",
+      "manager_password": "manager"
    },
    {
-      "name": "Whougie",
-      "email": "email@gmail.com",
-      "password": "example",
-      "role": "manager"
+      "manager_name": "Whougie",
+      "manager_email": "email@gmail.com",
+      "manager_password": "manager"
    },
    {
-      "name": "Kee",
-      "email": "email@gmail.com",
-      "password": "example",
-      "role": "manager"
+      "manager_name": "Kee",
+      "manager_email": "email@gmail.com",
+      "manager_password": "manager"
    },
    {
-      "name": "Andrew",
-      "email": "email@gmail.com",
-      "password": "example",
-      "role": "manager"
+      "manager_name": "Andrew",
+      "manager_email": "email@gmail.com",
+      "manager_password": "manager"
    }
    
    
