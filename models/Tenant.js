@@ -22,6 +22,13 @@ Tenant.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        apt_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'apartment',
+                key: 'id'
+            }
+        }
     },
 
     {
