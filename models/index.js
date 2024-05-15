@@ -16,6 +16,12 @@ Manager.hasMany(Issues, {
     foreignKey: 'manager_id'
 })
 
+Handyman.hasMany(Issues, {
+    onDelete: 'SET NULL',
+    foreignKey: 'manager_id'
+})
+
+
 Tenant.hasMany(Issues, {
     onDelete: 'SET NULL',
     foreignKey: 'tenant_id'
