@@ -2,6 +2,7 @@ const Tenant = require('./Tenant');
 const Apartment = require('./Apartment');
 const Manager = require('./Manager');
 const Issues = require('./Issues');
+const Handyman= require('./Handyman');
 
 Apartment.hasMany(Tenant, {
     foreignKey: 'apt_id'
@@ -27,6 +28,11 @@ Tenant.hasMany(Issues, {
     foreignKey: 'tenant_id'
 })
 
+Handyman.hasMany(Issues, {
+    onDelete: 'SET NULL',
+    foreignKey: 'handyman_id'
+})
+
 // Schedule.belongsToMany(Manager, {
 //     through: Issues,
 //     foreignKey: 'manager_id'
@@ -44,4 +50,5 @@ module.exports = {
     Apartment,
     Manager,
     Issues,
+    Handyman
 }
