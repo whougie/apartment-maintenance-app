@@ -9,6 +9,7 @@ Manager.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true
         },
         manager_name: {
             type: DataTypes.STRING,
@@ -27,6 +28,7 @@ Manager.init(
     {
         sequelize,
         underscored: true,
+        freezeTableName: true,
         modelName: 'manager'
     }
 
