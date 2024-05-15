@@ -1,21 +1,25 @@
 const router = require('express').Router();
-const Issues = require('../../models/Issues');
+const { Tenant, Manager, Apartment, Issues, Handyman,  } = require("../../models");
+//const Issues = require("../../models/Issues");
 
 // GET all Issues
 router.get('/', async (req, res) => {
   try {
-    const issueData = await Issue.findAll();
+    const issueData = await Issues.findAll({
+      include: [{ model: Tenant}
+        , {model: Manager}, {model: Handyman}]
+    });
     res.status(200).json(issueData);
-    console.log(issueData);
   } catch (err) {
     res.status(500).json(err);
+    console.log(err)
   }
 });
 
 // GET one Issue
 router.get('/:id', async (req, res) => {
   try {
-    const issueData = await Issue.findByPk(req.params.id);
+    const issueData = await Issues.findByPk(req.params.id);
     if (!issueData) {
       res.status(404).json({ message: 'No Issue with this id!' });
       return;
@@ -29,7 +33,7 @@ router.get('/:id', async (req, res) => {
 // CREATE a new Issue
 router.post('/', async (req, res) => {
    try {
-     const issueData = await Issue.create(req.body);
+     const issueData = await Issues.create(req.body);
      res.status(200).json(issueData);
    } catch (err) {
      res.status(400).json(err);
@@ -39,7 +43,7 @@ router.post('/', async (req, res) => {
 // UPDATE a Issue
 router.put('/:id', async (req, res) => {
   try {
-    const issueData = await Issue.update(req.body, {
+    const issueData = await Issues.update(req.body, {
       where: {
         id: req.params.id,
       },
@@ -57,7 +61,7 @@ router.put('/:id', async (req, res) => {
 // DELETE a Issue
 router.delete('/:id', async (req, res) => {
   try {
-    const issueData = await Issue.destroy({
+    const issueData = await Issues.destroy({
       where: {
         id: req.params.id,
       },

@@ -45,6 +45,10 @@ Issues.belongsTo(Manager, {
     foreignKey: 'manager_id'
 })
 
+Issues.belongsTo(Handyman, {
+    foreignKey: 'handyman_id'
+})
+
 module.exports = {
     Tenant,
     Apartment,
