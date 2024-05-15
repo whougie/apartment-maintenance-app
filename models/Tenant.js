@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequilize');
-const sequilize = require('../config/connection');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Tenant extends Model {}
 
@@ -9,6 +9,7 @@ Tenant.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true
         },
         tenant_name: {
             type: DataTypes.STRING,
@@ -30,10 +31,10 @@ Tenant.init(
             }
         }
     },
-
     {
-        sequilize,
+        sequelize,
         underscored: true,
+        freezeTableName: true,
         modelName: 'tenant'
     }
 

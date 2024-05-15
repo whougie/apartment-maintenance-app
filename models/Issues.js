@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequilize');
-const sequilize = require('../config/connection');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Issues extends Model {}
 
@@ -9,6 +9,7 @@ Issues.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true
         },
         tenant_id: {
             type: DataTypes.INTEGER,
@@ -25,20 +26,9 @@ Issues.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        date_requested: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         date_scheduled: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
-        apt_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'apartment',
-                key: 'id'
-            }
         },
         manager_id: {
             type: DataTypes.INTEGER,
@@ -50,8 +40,8 @@ Issues.init(
     },
 
     {
-        sequilize,
-        timestamps: false,
+        sequelize,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'issues'

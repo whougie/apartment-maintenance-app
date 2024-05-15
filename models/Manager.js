@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequilize');
-const sequilize = require('../config/connection');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Manager extends Model {}
 
@@ -9,6 +9,7 @@ Manager.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true
         },
         manager_name: {
             type: DataTypes.STRING,
@@ -25,8 +26,9 @@ Manager.init(
     },
 
     {
-        sequilize,
+        sequelize,
         underscored: true,
+        freezeTableName: true,
         modelName: 'manager'
     }
 
