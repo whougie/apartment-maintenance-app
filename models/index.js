@@ -17,6 +17,12 @@ Manager.hasMany(Issues, {
     foreignKey: 'manager_id'
 })
 
+Handyman.hasMany(Issues, {
+    onDelete: 'SET NULL',
+    foreignKey: 'manager_id'
+})
+
+
 Tenant.hasMany(Issues, {
     onDelete: 'SET NULL',
     foreignKey: 'tenant_id'
@@ -37,6 +43,10 @@ Issues.belongsTo(Tenant, {
 })
 Issues.belongsTo(Manager, {
     foreignKey: 'manager_id'
+})
+
+Issues.belongsTo(Handyman, {
+    foreignKey: 'handyman_id'
 })
 
 module.exports = {

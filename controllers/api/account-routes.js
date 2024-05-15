@@ -128,15 +128,15 @@ router.get('/issue/:id', async (req, res) => {
 })
 
 
-router.get('/issues', async (req, res) => {
-  // TODO need to create get all the issues in respect to request from the  DB
-  console.log(req.body);
-  try {
-    res.json({status: "Got the GET issues successfully"});
-  } catch (error) {
-    res.status(500).json({status: Failed, payload: error.message})
-  }
-})
+// router.get('/issues', async (req, res) => {
+//   // TODO need to create get all the issues in respect to request from the  DB
+//   console.log(req.body);
+//   try {
+//     res.json({status: "Got the GET issues successfully"});
+//   } catch (error) {
+//     res.status(500).json({status: Failed, payload: error.message})
+//   }
+// })
 
 function getHandyMan() {
   const table = [
