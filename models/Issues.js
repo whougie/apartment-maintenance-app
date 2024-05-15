@@ -36,6 +36,14 @@ Issues.init(
                 model: 'manager',
                 key: 'id'
             }
+        },
+        handyman_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'handyman',
+                key: 'id'
+            }
+            
         }
     },
 

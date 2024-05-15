@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt= require('bcrypt');
 
 class Manager extends Model {}
 
@@ -24,13 +25,25 @@ Manager.init(
             allowNull: false,
         },
     },
-
     {
+        hooks: {
+          beforeCreate: async(managerData) => {
+            managerData.password = await bcrypt.hash(managerData.password, 10);
+            return managerData;
+          },
+          beforeUpdate: async(managerData) => {
+            if( managerData.password ){
+              managerData.password = await bcrypt.hash(managerData.password, 10);
+              return managerData;
+            }
+          },
+        },
         sequelize,
         underscored: true,
         freezeTableName: true,
         modelName: 'manager'
-    }
+    },
+
 
 );
 
