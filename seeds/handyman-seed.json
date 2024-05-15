@@ -1,0 +1,22 @@
+[
+   {
+       "name": "Bob",
+       "type": "builder"
+   },
+   {
+       "name": "Mario",
+       "type": "plumber"
+   },
+   {
+       "name": "Luigi",
+       "type": "pumber"
+   },
+   {
+      "name": "Pikachu",
+      "type": "electrician"
+   },
+   {
+      "name": "Picasso",
+      "type": "painter"
+   }
+]

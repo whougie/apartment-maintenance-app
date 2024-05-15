@@ -1,10 +1,11 @@
 const sequelize = require('../config/connection');
 
-const { Tenant, Issues, Manager, Apartment } = require('../models');
+const { Tenant, Issues, Manager, Apartment, Handyman } = require('../models');
 
 const tenantsData = require('./tenant-seeds.json');
 const issuesData = require('./issue-seeds.json');
 const managersData = require('./manager-seeds.json');
+const handymenData = require('./handyman-seeds.json');
 const apartmentsData = require('./apartment-seeds.json');
 
 const seedDatabase = async () => {
@@ -18,6 +19,9 @@ const seedDatabase = async () => {
 
   const managerData = await Manager.bulkCreate(managersData);
   const managers = managerData.map(manager => manager.get({ plain: true }))
+
+  const handymanData = await Handyman.bulkCreate(handymenData);
+  const handymen = handymanData.map(handyman => handyman.get({ plain: true }))
 
   const issueData = await Issues.bulkCreate(issuesData.map((issue, index) => {
     return { ...issue, tenant_id: tenants[index].id, manager_id: managers[index].id }
