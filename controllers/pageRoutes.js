@@ -4,35 +4,37 @@ const router = require('express').Router();
 // Routes to retrieve HTML pages
 ///
 router.get('/', (req, res) => {
-  // TODO: go to the home page once it exist
-  // Temp output
+
+  
   try {
-    res.json({status: "Great and GET Homepage successful"});
+    res.render('homepage', {
+      loggedIn: req.session.loggedIn,
+    });
   } catch (error) {
     console.log(error);
-    res.status(500).json({status: Failed, payload: error.message})
+    res.status(500).json(error)
   }
 });
 
 router.get('/issue', (req, res) => {
   // TODO: go to the issues page once it exists
   try {
-    res.json({status: "Got the GET issue successfully"});
+    res.render('issue', {
+      loggedIn: req.session.loggedIn,
+    });
   } catch (error) {
     console.log(error);
-    res.status(500).json({status: Failed, payload: error.message})
+    res.status(500).json(error)
   }
 });
+
 
 router.get('/login', (req, res) => {
-  // TODO redirect to the login page
-  try {
-    res.json({status: "Got the GET Login successfully"});
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({status: Failed, payload: error.message})
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
   }
+  res.render('login');
 });
-
 
 module.exports = router;
