@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-//const bcrypt= require('bcrypt');
+const bcrypt= require('bcrypt');
 
 class Tenant extends Model {}
 
@@ -35,26 +35,25 @@ Tenant.init(
             }
         }
     },
-    // {
-    //     hooks: {
-    //       beforeCreate: async(tenantData) => {
-    //         tenantData.password = await bcrypt.hash(tenantData.password, 10);
-    //         return tenantData;
-    //       },
-    //       beforeUpdate: async(tenantData) => {
-    //         if( tenantData.password ){
-    //           tenantData.password = await bcrypt.hash(tenantData.password, 10);
-    //           return tenantData;
-    //         }
-    //       },
-    //     },
-    // },
     {
+        hooks: {
+          beforeCreate: async(tenantData) => {
+            tenantData.password = await bcrypt.hash(tenantData.password, 10);
+            return tenantData;
+          },
+          beforeUpdate: async(tenantData) => {
+            if( tenantData.password ){
+              tenantData.password = await bcrypt.hash(tenantData.password, 10);
+              return tenantData;
+            }
+          },
+        },
         sequelize,
         underscored: true,
         freezeTableName: true,
         modelName: 'tenant'
-    }
+    },
+
 
 );
 
