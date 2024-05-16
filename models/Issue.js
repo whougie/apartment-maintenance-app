@@ -30,6 +30,10 @@ Issue.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        active: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true,
+        },
         manager_id: {
             type: DataTypes.INTEGER,
             references: {
