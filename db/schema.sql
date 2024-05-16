@@ -59,7 +59,7 @@ CREATE DATABASE fix_db;
 -- JOIN tenants ON apartments.tenant_id = tenants.id;
 
 
--- CREATE TABLE issues(
+-- CREATE TABLE issue(
 --     id SERIAL PRIMARY KEY,
 --     room VARCHAR(30),
 --     issue TEXT,
@@ -80,7 +80,7 @@ CREATE DATABASE fix_db;
 --     REFERENCES apartments(id),
 --     issue_id INTEGER,
 --     FOREIGN KEY (issue_id)
---     REFERENCES issues(id)
+--     REFERENCES issue(id)
 -- );
 
 

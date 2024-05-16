@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Tenant, Manager, Apartment, Issues, Handyman,  } = require("../../models");
+const { Tenant, Manager, Apartment, Issue, Handyman,  } = require("../../models");
 const bcrypt = require("bcrypt");
 
 ////
@@ -118,10 +118,10 @@ router.get('/issue/:id', async (req, res) => {
   // TODO need to create get all the issues in respect to request from the  DB
   console.log(req.body);
   try {
-    Issue.findByPk(req.params.id, {
-      include: [Apartment, Manager, Tenant]
+    const issuesData = await Issue.findByPk(req.params.id, {
+      include: [Manager, Tenant, Handyman]
     })
-    res.json({status: "Got the GET issue with ID successfully"});
+    res.json(issuesData);
   } catch (error) {
     res.status(500).json({status: Failed, payload: error.message})
   }
