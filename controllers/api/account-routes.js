@@ -121,7 +121,6 @@ router.get('/issue/:id', async (req, res) => {
     const issuesData = await Issue.findByPk(req.params.id, {
       include: [Manager, Tenant, Handyman]
     })
-    // res.json({status: "Got the GET issue with ID successfully"});
     res.json(issuesData);
   } catch (error) {
     res.status(500).json({status: Failed, payload: error.message})
