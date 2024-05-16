@@ -1,4 +1,4 @@
-const { Apartment, Manager, Tenant, Issues } = require("../models")
+const { Apartment, Manager, Tenant, Issue } = require("../models")
 const tenantsData = require('./tenant-seeds.json');
 const issuesData = require('./issue-seeds.json');
 const mangersData = require('./manager-seeds.json');
