@@ -24,7 +24,7 @@ Tenant.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [8]
+                len: [3]
             }
         },
         apt_id: {
@@ -38,12 +38,12 @@ Tenant.init(
     {
         hooks: {
           beforeCreate: async(tenantData) => {
-            tenantData.password = await bcrypt.hash(tenantData.password, 10);
+            tenantData.tenant_password = await bcrypt.hash(tenantData.tenant_password, 10);
             return tenantData;
           },
           beforeUpdate: async(tenantData) => {
-            if( tenantData.password ){
-              tenantData.password = await bcrypt.hash(tenantData.password, 10);
+            if( tenantData.tenant_password ){
+              tenantData.tenant_password = await bcrypt.hash(tenantData.tenant_password, 10);
               return tenantData;
             }
           },
