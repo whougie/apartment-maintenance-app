@@ -5,7 +5,7 @@ const rwc = require("random-weighted-choice");
 ////
 // Routes to retrieve from the DB or save data to it and returns a response with JSON
 ////
-router.get("/", async (req, res) => {
+router.get("/tenant", async (req, res) => {
   try {
     const tenantData = await Tenant.findAll({
       include: [{ model: Apartment }],
@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
   }
 })
 
-router.get("/:id", async (req, res) => {
+router.get("/tenant/:id", async (req, res) => {
   try {
     const result = await Tenant.findByPk(req.params.id)
     res.status(200).json(result);
@@ -28,13 +28,13 @@ router.get("/:id", async (req, res) => {
     res.status(400).json( err )
   }
 })
-router.post("/login", async (req, res) => {
+router.post("/tenant/login", async (req, res) => {
   let emailCheck
   
   try {
     emailCheck = await Tenant.findOne({
       where: {
-        email: req.body.email
+        tenant_email: req.body.tenant_email
       }
     })
   } catch(err){
@@ -46,10 +46,10 @@ router.post("/login", async (req, res) => {
   }
   
   // if we are this far, then the email matched
-  const hashedPassword = emailCheck.password
+  const hashedPassword = emailCheck.tenant_password
   
   // time to verify the hashed password 
-  const verified = await bcrypt.compare(req.body.password, hashedPassword)
+  const verified = await bcrypt.compare(req.body.tenant_password, hashedPassword)
   
   if( verified ){
     res.status(200).json({ status: "success" })
@@ -60,7 +60,7 @@ router.post("/login", async (req, res) => {
 })
 
 
-router.post("/", async (req, res) => {
+router.post("/tenant", async (req, res) => {
   try {
     const result = await Tenant.create(req.body)
     res.json({ status: "success", payload: result })
@@ -70,81 +70,71 @@ router.post("/", async (req, res) => {
 })
 
 
-
-router.post('/', async (req, res) => {
-  console.log(req.body); // TODO: Temporary outputting the request from the form of a new account being created until more of the project is completed, which will save the account information of user to DB
+router.get("/manager", async (req, res) => {
   try {
-    res.json({status: "Great and POST account successfully created"});
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({status: Failed, payload: error.message})
-  }
-})
-
-router.post('/login', async (req, res) => {
-  // TODO need to check to see if password for the username is correct
-  console.log(req.body);
-  try {
-    res.json({status: "Got the POST Login successfully"});
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({status: Failed, payload: error.message})
-  }
-})
-
-router.put('/', async (req, res) => {
-  // TODO need make change to the db to update account appt changes
-  console.log(req.body);
-  try {
-    res.json({status: "Got the PUT Login successfully"});
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({status: Failed, payload: error.message})
-  }
-})
-
-
-router.post('/issue', async (req, res) => {
-  // TODO need to create a new issue and save in DB
-  console.log(req.body);
-  try {
-    res.json({status: "Got the POST issue successfully"});
-  } catch (error) {
-    res.status(500).json({status: Failed, payload: error.message})
-  }
-})
-
-router.get('/issue/:id', async (req, res) => {
-  // TODO need to create get all the issues in respect to request from the  DB
-  console.log(req.body);
-  try {
-    const issuesData = await Issue.findByPk(req.params.id, {
-      include: [Manager, Tenant, Handyman]
+    const managerData = await Manager.findAll({
+      
     })
-    res.json(issuesData);
-  } catch (error) {
-    res.status(500).json({status: Failed, payload: error.message})
+    console.log(managerData)
+    res.status(200).json(managerData);
+    
+  } catch(err){ 
+    console.log(err)
+    res.status(400).json( err )
+  }
+})
+
+router.get("/manager/:id", async (req, res) => {
+  try {
+    const result = await Manager.findByPk(req.params.id)
+    res.status(200).json(result);
+  } catch(err){
+    console.log(err)
+    res.status(400).json( err )
+  }
+})
+router.post("/manager/login", async (req, res) => {
+  let emailCheck
+  
+  try {
+    emailCheck = await Manager.findOne({
+      where: {
+        manager_email: req.body.manager_email
+      }
+    })
+  } catch(err){
+    res.status(400).json({ status: "error" })
+  }
+  
+  if( !emailCheck ){
+    return res.status(401).json({ status: "error", msg: 'incorrect email'})
+  }
+  
+  // if we are this far, then the email matched
+  const hashedPassword = emailCheck.manager_password
+  
+  // time to verify the hashed password 
+  const verified = await bcrypt.compare(req.body.manager_password, hashedPassword)
+  
+  if( verified ){
+    res.status(200).json({ status: "success" })
+  } else {
+    res.status(401).json({ status: "error", msg: 'incorrect password' })
+  }
+  
+})
+
+
+router.post("/manager", async (req, res) => {
+  try {
+    const result = await Manager.create(req.body)
+    res.json({ status: "success", payload: result })
+  } catch(err){
+    res.status(400).json({ status: "error" })
   }
 })
 
 
-// router.get('/issues', async (req, res) => {
-//   // TODO need to create get all the issues in respect to request from the  DB
-//   console.log(req.body);
-//   try {
-//     res.json({status: "Got the GET issues successfully"});
-//   } catch (error) {
-//     res.status(500).json({status: Failed, payload: error.message})
-//   }
-// })
-
-// Create a variable counter for each handyman
-
-// Once you have the counter, keep track of how many issues each handyman has
-//To get the counter of issues, you'll have to loop through the issues array and check which handyman is assigned to it
-
-//Once you have the counters for how many issus each handyman has, you can determine what the the weight should be for that handyman.  Ex. If (issues <25% && issues > 50) then set weight to 2,
-// If (issues <0%% && issues > 25%) then set weight to 4
 
 async function getHandyMan() {
   try {
@@ -301,26 +291,7 @@ async function getHandyMan() {
     
     console.log(table);
     
-    // const table = (handymanCounters).map((handyman) => {
-    //   let weight = 1;
-    //   const issuesCount = handymanCounters[handyman];
-    //   console.log("This is the handyman");
-    //   console.log(handyman);
     
-    //   if (issuesCount >= 1 && issuesCount <= 2) {
-    //     weight = 2;
-    //   } else if (issuesCount > 2) {
-    //     weight = 4;
-    //   }
-    
-    //   return { weight: weight, id: handyman };
-    // });
-    
-    // table = [{weight: 2, handyman_id: 45},
-    //{weight: 4, handy_id: 22}
-    //]
-    
-    // Choose a random handyman using the weighted table
     const chosenHandyman = rwc(table);
     console.log("Randomly chosen handyman:", chosenHandyman);
   } catch (err) {
@@ -331,15 +302,5 @@ async function getHandyMan() {
 // Call the function to execute it
 getHandyMan();
 
-/*const rwc = require("random-weighted-choice");
-const table = [
-  { weight: 1, id: "item1" }, // Element 1
-  { weight: 1, id: "item2" }, // Element 2
-  { weight: 4, id: "item3" }, // Element with a 4 times likelihood
-  { weight: 2, id: "item4" }, // Element 4
-  { weight: 2, id: "item5" },
-];
-const choosenItem = rwc(table);
-const choosenUnlikely = rwc(table, 100); // The last shall be first
-const choosenDeterministically = rwc(table, 0);*/
+
 module.exports = router;

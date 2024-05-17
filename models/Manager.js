@@ -28,12 +28,12 @@ Manager.init(
     {
         hooks: {
           beforeCreate: async(managerData) => {
-            managerData.password = await bcrypt.hash(managerData.password, 10);
+            managerData.manager_password = await bcrypt.hash(managerData.manager_password, 10);
             return managerData;
           },
           beforeUpdate: async(managerData) => {
-            if( managerData.password ){
-              managerData.password = await bcrypt.hash(managerData.password, 10);
+            if( managerData.manager_password ){
+              managerData.manager_password = await bcrypt.hash(managerData.manager_password, 10);
               return managerData;
             }
           },
