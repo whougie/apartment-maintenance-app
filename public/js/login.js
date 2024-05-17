@@ -1,11 +1,17 @@
+console.log(document.querySelector('#login'))
+console.log(document.querySelector('#password-login'))
+
 const loginForm = async (event) => {
     event.preventDefault();
 
-    const email=document.querySelector('#login').ariaValueMax.trim();
-    const password = document.querySelector('#password_login').toLocaleUpperCase.trim();
+
+    const email = document.querySelector('#login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
+
+    console.log(email)
 
     if ( email && password) {
-        const response = await fetch('/api/users/login', {
+        const response = await fetch('/api/tenant/login', {
             method: 'POST',
             body: JSON.stringify({ email, password}),
             headers: {'Content-Type': 'application/json' }
@@ -43,8 +49,8 @@ const signupForm = async (event) => {
 
 document
     .querySelector('.login-form')
-    .addEventListener('submit', loginFOrmHandler);
+    .addEventListener('submit', loginForm);
 
     document
     .querySelector('.signup-form')
-    .addEventListener('submit', loginFOrmHandler);
+    .addEventListener('submit', loginForm);
