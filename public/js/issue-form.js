@@ -24,11 +24,9 @@ async function formPopulate(event) {
     } catch (error) {
         submitMessage.textContent = "Your apartment isn't the only thing on fire!"
     }
-
 }
 
+const buttonSubmit = document.querySelector('.submit-form')
 
-
-const buttonSubmit = document.querySelector('#issue-button')
 
 buttonSubmit.addEventListener('click', formPopulate);
