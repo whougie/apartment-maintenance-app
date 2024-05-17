@@ -37,10 +37,7 @@ Issue.init(
                 key: 'id'
             }
         },
-        date_scheduled: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        
         handyman_id: {
             type: DataTypes.INTEGER,
             references: {
