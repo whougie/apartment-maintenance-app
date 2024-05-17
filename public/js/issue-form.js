@@ -5,11 +5,12 @@ const submitMessage = document.querySelector('.submit-message')
 
 
 async function formPopulate(event) {
+    console.log("jkl;asdf;jklasdfjkl;")
     try {
         event.preventDefault();
         const room = document.querySelector('#room').value
         const issue = document.querySelector('#broken-thing').value
-        console.log(issue, date, room)
+        console.log(issue, room)
 
         const response = await fetch('/api/issues', {
             method: 'POST',
@@ -29,6 +30,6 @@ async function formPopulate(event) {
 
 
 
-const buttonSubmit = document.querySelector('.form-group')
+const buttonSubmit = document.querySelector('.submit-form')
 
 buttonSubmit.addEventListener('submit', formPopulate);
