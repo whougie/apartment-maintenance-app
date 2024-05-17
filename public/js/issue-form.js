@@ -11,7 +11,7 @@ async function formPopulate(event) {
         const issue = document.querySelector('#broken-thing').value
         console.log(issue, room)
 
-        const response = await fetch('/api/issue', {
+        const response = await fetch('/api/issues', {
             method: 'POST',
             body: JSON.stringify({ issue, room }),
             headers: { 'Content-Type': 'application/json' }

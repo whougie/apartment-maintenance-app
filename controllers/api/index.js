@@ -6,7 +6,7 @@ const apartmentRoute = require('./apartment-routes')
 const handymanRoute = require('./handyman-routes')
 
 router.use('/account', accountRoute);
-router.use('/issue', issuesRoute);
+router.use('/issues', issuesRoute);
 router.use('/apartment', apartmentRoute);
 router.use('/handyman', handymanRoute);
 
