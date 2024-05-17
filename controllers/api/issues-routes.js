@@ -37,7 +37,8 @@ router.post('/', async (req, res) => {
      const issueData = await Issue.create(req.body);
      res.status(200).json(issueData);
    } catch (err) {
-     res.status(400).json(err);
+     res.status(400).json(err,);
+     console.log(err)
    }
  });
 
