@@ -5,15 +5,15 @@ const submitMessage = document.querySelector('.submit-message')
 
 
 async function formPopulate(event) {
+    event.preventDefault();
     try {
-        event.preventDefault();
         const room = document.querySelector('#room').value
         const issue = document.querySelector('#broken-thing').value
-        console.log(issue, date, room)
+        console.log(issue, room)
 
-        const response = await fetch('/api/issue', {
+        const response = await fetch('/api/issues', {
             method: 'POST',
-            body: JSON.stringify({ date, issue, room }),
+            body: JSON.stringify({ issue, room }),
             headers: { 'Content-Type': 'application/json' }
         })
         if (response.ok) {
@@ -29,6 +29,6 @@ async function formPopulate(event) {
 
 
 
-const buttonSubmit = document.querySelector('.form-group')
+const buttonSubmit = document.querySelector('#issue-button')
 
-buttonSubmit.addEventListener('submit', formPopulate);
+buttonSubmit.addEventListener('click', formPopulate);
