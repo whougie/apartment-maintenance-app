@@ -30,6 +30,7 @@ router.get("/tenant/:id", async (req, res) => {
 })
 router.post("/tenant/login", async (req, res) => {
   let emailCheck
+  console.log(req.body)
   
   try {
     emailCheck = await Tenant.findOne({
@@ -38,11 +39,13 @@ router.post("/tenant/login", async (req, res) => {
       }
     })
   } catch(err){
+    console.log(err)
     res.status(400).json({ status: "error" })
   }
   
+  console.log(emailCheck)
   if( !emailCheck ){
-    return res.status(401).json({ status: "error" })
+    return res.status(401).json({ status: "error", message: "Username or Password does not match" })
   }
   
   // if we are this far, then the email matched
@@ -54,7 +57,7 @@ router.post("/tenant/login", async (req, res) => {
   if( verified ){
     res.status(200).json({ status: "success" })
   } else {
-    res.status(401).json({ status: "error" })
+    res.status(401).json({ status: "error", message: "User is unauthenticated" })
   }
   
 })
