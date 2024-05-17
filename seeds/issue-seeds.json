@@ -5,7 +5,6 @@
         "issue": "Oven broken",
         "active": true,
         "manager_id": 1,
-        "date_scheduled": "AsAP",
         "handyman_id": 4
     },
     {
@@ -14,7 +13,6 @@
         "issue": "Toilet clogged",
         "active": true,
         "manager_id": 2,
-        "date_scheduled": "AsAP",
         "handyman_id": 2
     },
     {
@@ -23,7 +21,6 @@
         "issue": "Hole in wall",
         "active": true,
         "manager_id": 3,
-        "date_scheduled": "AsAP",
         "handyman_id": 1
     },
     {
@@ -32,7 +29,6 @@
         "issue": "TV on fire",
         "active": true,
         "manager_id": 4,
-        "date_scheduled": "AsAP",
         "handyman_id": 4
     },
     {
@@ -41,7 +37,6 @@
         "issue": "TV on fire",
         "active": true,
         "manager_id": 5,
-        "date_scheduled": "AsAP",
         "handyman_id": 4
     },
     {
@@ -50,7 +45,6 @@
         "issue": "carpet stain",
         "active": true,
         "manager_id": 1,
-        "date_scheduled": "AsAP",
         "handyman_id": 5
     },
     {
@@ -59,7 +53,6 @@
         "issue": "TV on fire",
         "active": true,
         "manager_id": 2,
-        "date_scheduled": "AsAP",
         "handyman_id": 4
     },
     {
@@ -68,7 +61,6 @@
         "issue": "Window broken",
         "active": true,
         "manager_id": 3,
-        "date_scheduled": "AsAP",
         "handyman_id": 1
     },
     {
@@ -77,7 +69,6 @@
         "issue": "Fridge broken",
         "active": true,
         "manager_id": 4,
-        "date_scheduled": "AsAP",
         "handyman_id": 1
     },
     {
@@ -86,7 +77,6 @@
         "issue": "bathtub clogged",
         "active": true,
         "manager_id": 5,
-        "date_scheduled": "AsAP",
         "handyman_id": 3
     },
     {
@@ -95,7 +85,6 @@
         "issue": "faucet broken",
         "active": true,
         "manager_id": 1,
-        "date_scheduled": "AsAP",
         "handyman_id": 2
     },
     {
@@ -104,7 +93,6 @@
         "issue": "wallpaper damage",
         "active": true,
         "manager_id": 2,
-        "date_scheduled": "AsAP",
         "handyman_id": 5
     }
 ]
