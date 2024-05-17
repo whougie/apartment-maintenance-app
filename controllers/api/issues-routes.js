@@ -4,6 +4,7 @@ const { Tenant, Manager, Apartment, Issue, Handyman,  } = require("../../models"
 
 // GET all Issues
 router.get('/', async (req, res) => {
+  console.log("hello")
   try {
     const issueData = await Issue.findAll({
       include: [{ model: Tenant}
