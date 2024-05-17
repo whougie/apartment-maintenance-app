@@ -15,10 +15,8 @@ async function populateIssues() {
             const dTag = document.createElement("p")
             h4Tag.textContent = issue.room
             pTag.textContent = issue.issue
-            dTag.textContent = `schedule: ${issue.date_scheduled}`
             divTag.appendChild(h4Tag)
             pTag.appendChild(h4Tag)
-            dTag.appendChild(h4Tag)
             if(issue.active) {
                 activeIssue.appendChild(divTag);
             } else {
