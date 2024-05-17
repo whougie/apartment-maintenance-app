@@ -29,6 +29,7 @@ const seedDatabase = async () => {
     const tenantIndex = Math.floor(Math.random() * (tenants.length));
     const managerIndex = Math.floor(Math.random() * (managers.length));
     return { ...issue, tenant_id: tenants[tenantIndex].id, manager_id: managers[managerIndex].id }
+
   }));
   const issues = issueData.map(issue => issue.get({plain:true}))
   
