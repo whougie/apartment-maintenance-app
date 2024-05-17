@@ -1,62 +1,110 @@
 [
     {
+        "tenant_id": 3,
         "room": "Kitchen",
         "issue": "Oven broken",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 1,
+        "date_scheduled": "AsAP",
+        "handyman_id": 4
     },
     {
+        "tenant_id": 5,
         "room": "Bathroom",
         "issue": "Toilet clogged",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 2,
+        "date_scheduled": "AsAP",
+        "handyman_id": 2
     },
     {
+        "tenant_id": 1,
         "room": "Bedroom",
         "issue": "Hole in wall",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 3,
+        "date_scheduled": "AsAP",
+        "handyman_id": 1
     },
     {
+        "tenant_id": 4,
         "room": "Bedroom",
         "issue": "TV on fire",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 4,
+        "date_scheduled": "AsAP",
+        "handyman_id": 4
     },
     {
+        "tenant_id": 2,
         "room": "Living room",
         "issue": "TV on fire",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 5,
+        "date_scheduled": "AsAP",
+        "handyman_id": 4
     },
     {
+        "tenant_id": 5,
         "room": "Bedroom",
         "issue": "carpet stain",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 1,
+        "date_scheduled": "AsAP",
+        "handyman_id": 5
     },
     {
+        "tenant_id": 2,
         "room": "Bedroom",
         "issue": "TV on fire",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 2,
+        "date_scheduled": "AsAP",
+        "handyman_id": 4
     },
     {
+        "tenant_id": 3,
         "room": "Bedroom",
         "issue": "Window broken",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 3,
+        "date_scheduled": "AsAP",
+        "handyman_id": 1
     },
     {
+        "tenant_id": 1,
         "room": "Kitchen",
         "issue": "Fridge broken",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 4,
+        "date_scheduled": "AsAP",
+        "handyman_id": 1
     },
     {
+        "tenant_id": 4,
         "room": "Bathroom",
         "issue": "bathtub clogged",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 5,
+        "date_scheduled": "AsAP",
+        "handyman_id": 3
     },
     {
+        "tenant_id": 1,
         "room": "Kitchen",
         "issue": "faucet broken",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 1,
+        "date_scheduled": "AsAP",
+        "handyman_id": 2
     },
     {
+        "tenant_id": 5,
         "room": "Bedroom",
         "issue": "wallpaper damage",
-        "date_scheduled": "AsAP"
+        "active": true,
+        "manager_id": 2,
+        "date_scheduled": "AsAP",
+        "handyman_id": 5
     }
 ]

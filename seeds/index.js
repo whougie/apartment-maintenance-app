@@ -26,7 +26,9 @@ const seedDatabase = async () => {
   const handymen = handymanData.map(handyman => handyman.get({ plain: true }))
 
   const issueData = await Issue.bulkCreate(issuesData.map((issue, index) => {
-    return { ...issue, tenant_id: tenants[index].id, manager_id: managers[index].id }
+    return { ...issue
+      , tenant_id: tenants[index].id, manager_id: managers[index].id 
+    }
   }));
   const issues = issueData.map(issue => issue.get({plain:true}))
   
