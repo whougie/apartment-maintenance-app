@@ -7,7 +7,6 @@ const loginForm = async (event) => {
     
     
     if ( email.value && password.value) {
-        console.log("email " + email.value + " password is " + password.value)
         
         let response = null; 
         if (managerCheckElement.checked) {
@@ -57,7 +56,6 @@ const signupForm = async (event) => {
 
 document
 .querySelector('.login-form')
-// .addEventListener('submit', loginFOrmHandler);
 .addEventListener('submit', loginForm);
 
 document

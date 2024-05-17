@@ -30,7 +30,6 @@ router.get("/tenant/:id", async (req, res) => {
 })
 router.post("/tenant/login", async (req, res) => {
   let emailCheck
-  console.log(req.body)
   
   try {
     emailCheck = await Tenant.findOne({
