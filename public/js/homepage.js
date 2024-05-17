@@ -4,10 +4,10 @@ const activeIssue = document.querySelector("#active-issue")
 const completedIssue = document.querySelector("#completed-issue")
 
 async function populateIssues() {
-    const response = await fetch("/api/issue")
+    const response = await fetch("/api/issues")
     const data = await response.json()
         console.log(data)
-        for (let i = 0; i < data.results.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             const issue = data.results[i]
             const divTag = document.createElement("div")
             const h4Tag = document.createElement("h4")

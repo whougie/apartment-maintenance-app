@@ -25,10 +25,11 @@ const seedDatabase = async () => {
   const handymanData = await Handyman.bulkCreate(handymansData);
   const handymen = handymanData.map(handyman => handyman.get({ plain: true }))
 
-  const issueData = await Issue.bulkCreate(issuesData.map((issue, index) => {
-    return { ...issue
-      , tenant_id: tenants[index].id, manager_id: managers[index].id 
-    }
+  const issueData = await Issue.bulkCreate(issuesData.map((issue) => {
+    const tenantIndex = Math.floor(Math.random() * (tenants.length));
+    const managerIndex = Math.floor(Math.random() * (managers.length));
+    return { ...issue, tenant_id: tenants[tenantIndex].id, manager_id: managers[managerIndex].id }
+
   }));
   const issues = issueData.map(issue => issue.get({plain:true}))
   
