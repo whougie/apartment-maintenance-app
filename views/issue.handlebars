@@ -3,18 +3,20 @@
     <body>  
         <form>
             <div class="form-group">
-                <label for="date-issued">Date</label>
-                <input class="form-input" type="text" id="date-issued" />
+                <label for="room">What room is the issue occuring? </label>
+                <input class="form-input" type="text" id="room" />
             </div>
             <div class="form-group">
                 <label for="broken-thing">What's the issue? Any other information? </label>
                 <input class="form-input" type="text" id="broken-thing" />
             </div>
             <div class="form-group">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" id="issue-button" type="submit">Submit</button>
             </div>
         </form>
-        <script src="/js/logic.js"></script>
+        <div class="submit-message"> </div>
+        <script src="/js/issue-form.js"></script>
+
     </body>  
 </html>
 

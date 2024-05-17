@@ -26,10 +26,6 @@ Issue.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        date_scheduled: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         active: {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
