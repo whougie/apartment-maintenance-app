@@ -28,4 +28,4 @@ async function populateIssues() {
 
 }
 
-populateIssues()
+// populateIssues()
