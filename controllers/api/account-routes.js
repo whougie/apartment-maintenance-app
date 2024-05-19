@@ -71,7 +71,6 @@ router.post("/tenant", async (req, res) => {
       return apartment.apt_number === req.body.tenant_aptNumber;
     })
 
-    console.log(apartmentRoom);
     const result = await Tenant.create({tenant_name: req.body.tenant_name, tenant_email: req.body.tenant_email, tenant_password: req.body.tenant_password, apt_id: apartmentRoom[0].id});
     res.json({ status: "success", payload: result })
   } catch(err){
