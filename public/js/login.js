@@ -1,5 +1,9 @@
+console.log(document.querySelector('#login'))
+console.log(document.querySelector('#password-login'))
+
 const loginForm = async (event) => {
     event.preventDefault();
+
     
     const email = document.querySelector('#login');
     const password = document.querySelector('#password-login');
@@ -25,6 +29,7 @@ const loginForm = async (event) => {
         
         
         if (response && response.ok) {
+
             document.location.replace('/');
         }   else {
             alert('Failed attempt to log in.');
@@ -36,6 +41,7 @@ const loginForm = async (event) => {
 
 const signupForm = async (event) => {
     event.preventDefault();
+
     
     const name = document.querySelector('#username-signup');
     const email = document.querySelector('#email-signup');
@@ -63,6 +69,7 @@ const signupForm = async (event) => {
                 body: JSON.stringify({ tenant_name: name.value, tenant_email: email.value, tenant_password: password.value, tenant_aptNumber: parseInt(aptNumber.value) }),
                 headers: { 'Content-Type': 'application/json' },
             });   
+
         } else {
             alert('Failed to signup, not all fields filled out for tenant');
         }
@@ -77,9 +84,9 @@ const signupForm = async (event) => {
 };
 
 document
-.querySelector('.login-form')
-.addEventListener('submit', loginForm);
+    .querySelector('.login-form')
+    .addEventListener('submit', loginForm);
 
-document
-.querySelector('.signup-form')
-.addEventListener('submit', signupForm);
+    document
+    .querySelector('.signup-form')
+    .addEventListener('submit', loginForm);
