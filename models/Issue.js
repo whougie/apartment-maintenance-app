@@ -37,6 +37,7 @@ Issue.init(
                 key: 'id'
             }
         },
+
         handyman_id: {
             type: DataTypes.INTEGER,
             references: {
