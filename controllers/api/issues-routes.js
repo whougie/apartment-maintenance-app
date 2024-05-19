@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Tenant, Manager, Apartment, Issue, Handyman,  } = require("../../models");
+const { Tenant, Manager, Apartment, Issue, Handyman, } = require("../../models");
 //const Issue = require("../../models/Issue");
 
 // GET all Issues
@@ -7,8 +7,8 @@ router.get('/', async (req, res) => {
   console.log("hello")
   try {
     const issueData = await Issue.findAll({
-      include: [{ model: Tenant}
-        , {model: Manager}, {model: Handyman}]
+      include: [{ model: Tenant }
+        , { model: Manager }, { model: Handyman }]
     });
     res.status(200).json(issueData);
   } catch (err) {
@@ -33,14 +33,14 @@ router.get('/:id', async (req, res) => {
 
 // CREATE a new Issue
 router.post('/', async (req, res) => {
-   try {
-     const issueData = await Issue.create(req.body);
-     res.status(200).json(issueData);
-   } catch (err) {
-     res.status(400).json(err,);
-     console.log(err)
-   }
- });
+  try {
+    const issueData = await Issue.create({...req.body, tenant_id: req.session.userId});
+    res.status(200).json(issueData);
+  } catch (err) {
+    res.status(400).json(err,);
+    console.log(err)
+  }
+});
 
 // UPDATE a Issue
 router.put('/:id', async (req, res) => {

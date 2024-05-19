@@ -18,8 +18,12 @@ const PORT = process.env.PORT || 3001;
 const sessionConfigs = {
   secret: 'Super duper Changed Secret key',
   cookie: {
-    maxAge: 8 * 60 * 60 * 1000 // expires after 8 hours
+    maxAge: 30000000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict'
   },
+  
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
