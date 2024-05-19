@@ -53,7 +53,13 @@ router.post("/tenant/login", async (req, res) => {
   const verified = await bcrypt.compare(req.body.tenant_password, hashedPassword)
   
   if( verified ){
-    res.status(200).json({ status: "success" })
+    const tenant = emailCheck.get({plain:true})
+    req.session.save(() => {
+      req.session.loggedIn = true
+      req.session.manager = false
+      req.session.userId = tenant.id
+      res.json({ status: "success", payload: tenant })
+    })
   } else {
     res.status(401).json({ status: "error", message: "User is unauthenticated" })
   }
@@ -62,21 +68,34 @@ router.post("/tenant/login", async (req, res) => {
 
 
 router.post("/tenant", async (req, res) => {
+  console.log(req.body)
   try {
     const apartmentData = await Apartment.findAll();
     const apartments = apartmentData.map( apartment => {
       return apartment.get({plain: true})
     })
+    
     const apartmentRoom = apartments.filter( apartment => { // find matching apt id for the apt room
       return apartment.apt_number === req.body.tenant_aptNumber;
     })
-
+console.log(apartmentRoom )
     const result = await Tenant.create({tenant_name: req.body.tenant_name, tenant_email: req.body.tenant_email, tenant_password: req.body.tenant_password, apt_id: apartmentRoom[0].id});
-    res.json({ status: "success", payload: result })
+    const tenant = result.get({plain:true})
+    req.session.save(() => {
+      req.session.loggedIn = true
+      req.session.manager = false
+      req.session.userId = tenant.id
+      res.json({ status: "success", payload: result })
+    })
+    
   } catch(err){
     console.log(err)
     res.status(400).json({ status: "error" })
   }
+})
+
+router.post("/logout", (req, res) => {
+  req.session.destroy(() => res.status(204).end())
 })
 
 
@@ -127,7 +146,13 @@ router.post("/manager/login", async (req, res) => {
   const verified = await bcrypt.compare(req.body.manager_password, hashedPassword)
   
   if( verified ){
-    res.status(200).json({ status: "success" })
+    const manager = emailCheck.get({plain:true})
+    req.session.save(() => {
+      req.session.loggedIn = true
+      req.session.manager = true
+      req.session.userId = manager.id
+      res.json({ status: "success", payload: manager })
+    })
   } else {
     res.status(401).json({ status: "error", msg: 'incorrect password' })
   }
@@ -138,7 +163,13 @@ router.post("/manager/login", async (req, res) => {
 router.post("/manager", async (req, res) => {
   try {
     const result = await Manager.create(req.body)
-    res.json({ status: "success", payload: result })
+    const manager = result.get({plain:true})
+    req.session.save(() => {
+      req.session.loggedIn = true
+      req.session.manager = true
+      req.session.userId = manager.id
+      res.json({ status: "success", payload: result })
+    })
   } catch(err){
     console.log(err);
     res.status(400).json({ status: "error" })
