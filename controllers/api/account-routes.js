@@ -10,7 +10,6 @@ router.get("/tenant", async (req, res) => {
     const tenantData = await Tenant.findAll({
       include: [{ model: Apartment }],
     })
-    console.log(tenantData)
     res.status(200).json(tenantData);
     
   } catch(err){ 
@@ -64,9 +63,19 @@ router.post("/tenant/login", async (req, res) => {
 
 router.post("/tenant", async (req, res) => {
   try {
-    const result = await Tenant.create(req.body)
+    const apartmentData = await Apartment.findAll();
+    const apartments = apartmentData.map( apartment => {
+      return apartment.get({plain: true})
+    })
+    const apartmentRoom = apartments.filter( apartment => { // find matching apt id for the apt room
+      return apartment.apt_number === req.body.tenant_aptNumber;
+    })
+
+    console.log(apartmentRoom);
+    const result = await Tenant.create({tenant_name: req.body.tenant_name, tenant_email: req.body.tenant_email, tenant_password: req.body.tenant_password, apt_id: apartmentRoom[0].id});
     res.json({ status: "success", payload: result })
   } catch(err){
+    console.log(err)
     res.status(400).json({ status: "error" })
   }
 })
@@ -132,6 +141,7 @@ router.post("/manager", async (req, res) => {
     const result = await Manager.create(req.body)
     res.json({ status: "success", payload: result })
   } catch(err){
+    console.log(err);
     res.status(400).json({ status: "error" })
   }
 })
