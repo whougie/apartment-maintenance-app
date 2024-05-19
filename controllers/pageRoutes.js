@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     return;
   }
   try {
-  const issueData = await Issue.findAll({ where: { tenant_id: req.session.userId } })
+  const issueData = req.session.manager ? await Issue.findAll() : await Issue.findAll({ where: { tenant_id: req.session.userId } })
   const issues = issueData.map(issue => issue.get({ plain: true }))
   console.log('14',issues)
   console.log('15',req.session.userId)

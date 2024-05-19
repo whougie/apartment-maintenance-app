@@ -56,6 +56,7 @@ router.post("/tenant/login", async (req, res) => {
     const tenant = emailCheck.get({plain:true})
     req.session.save(() => {
       req.session.loggedIn = true
+      req.session.manager = false
       req.session.userId = tenant.id
       res.json({ status: "success", payload: tenant })
     })
@@ -82,6 +83,7 @@ console.log(apartmentRoom )
     const tenant = result.get({plain:true})
     req.session.save(() => {
       req.session.loggedIn = true
+      req.session.manager = false
       req.session.userId = tenant.id
       res.json({ status: "success", payload: result })
     })
@@ -144,7 +146,13 @@ router.post("/manager/login", async (req, res) => {
   const verified = await bcrypt.compare(req.body.manager_password, hashedPassword)
   
   if( verified ){
-    res.status(200).json({ status: "success" })
+    const manager = emailCheck.get({plain:true})
+    req.session.save(() => {
+      req.session.loggedIn = true
+      req.session.manager = true
+      req.session.userId = manager.id
+      res.json({ status: "success", payload: manager })
+    })
   } else {
     res.status(401).json({ status: "error", msg: 'incorrect password' })
   }
@@ -155,7 +163,13 @@ router.post("/manager/login", async (req, res) => {
 router.post("/manager", async (req, res) => {
   try {
     const result = await Manager.create(req.body)
-    res.json({ status: "success", payload: result })
+    const manager = result.get({plain:true})
+    req.session.save(() => {
+      req.session.loggedIn = true
+      req.session.manager = true
+      req.session.userId = manager.id
+      res.json({ status: "success", payload: result })
+    })
   } catch(err){
     console.log(err);
     res.status(400).json({ status: "error" })
