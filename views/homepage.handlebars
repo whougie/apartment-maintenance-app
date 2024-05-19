@@ -1,43 +1,33 @@
-<div class="row align-center mb-5">
+<div class="row align-center my-2">
     <div class="col-md-6">
         <h2>Welcome! </h2>
     </div>
-    <div class="col-md-6">
-        {{!-- <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3> --}}
-    </div>
 </div>
 <div>
-    <div class="form-group">
-
-        <button class="btn btn-seccondary" onClick="window.location.href='/issue'" type="issue"> maintenance help
-            request</button>
-
-
-
-    </div>
-    <div>
-        <h4>Active issues </h4>
-        <div id="active-issues">
+    <button class="btn btn-warning" onClick="window.location.href='/issue'"> Maintenance Help Request</button>
+    <div class="container">
+        <h4 class="animate__animated animate__slideInRight">>Active Issues </h4>
+        <div class="row" id="active-issues">
             {{#each issues as |issue| }}
             {{#if issue.active}}
-            <div>
-                <h6>{{issue.tenant_id}}</h6>
-                <h6>{{issue.room}}</h6>
-                <p>{{issue.issue}}</p>
+            <div class="col-3 card m-3 p-2">
+                <h6>Tenant: {{issue.tenant_id}}</h6>
+                <h6>Room: {{issue.room}}</h6>
+                <h6>Issue: {{issue.issue}}</h6>
                 <button id={{issue.id}} class="btn btn-primary completeIssue" type="click">Complete</button>
             </div>
             {{/if}}
             {{/each}}
         </div>
     </div>
-    <h4 class="animate__animated animate__slideInRight"></h4>>Completed issues</h4>
-    <div id="completed-issues">
+    <h4 class="animate__animated animate__slideInRight">>Completed Issues</h4>
+    <div class="row" id="completed-issues">
         {{#each issues as |issue| }}
         {{#unless issue.active}}
-        <div>
-            <h6>{{issue.tenant_id}}</h6>
-            <h6>{{issue.room}}</h6>
-            <p>{{issue.issue}}</p>
+        <div class="col-3 card m-3 p-2">
+            <h6>Tenant: {{issue.tenant_id}}</h6>
+            <h6>Room: {{issue.room}}</h6>
+            <h6>Issue: {{issue.issue}}</h6>
             <button id={{issue.id}} class="btn btn-primary deleteIssue" type="click">Archive</button>
         </div>
         {{/unless}}
@@ -47,13 +37,3 @@
     <script type="text/javascript" src="/js/homepage.js"></script>
 </div>
 
-
-{{!-- todo
-1- need to make a funtion that generates html off of the completed issue file
-
-2- need to have logic in homepage that prevents body content from displaying until logged in.
-
-3- need to add logic that filters only user issues if user is logged in vs manager.
-
-
---}}

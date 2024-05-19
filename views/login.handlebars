@@ -1,52 +1,49 @@
-{{!-- 
- todo
-user logins into the application
-  --}}
 
 
-<div class="row justify-space-between-md">
-  <div class="login-card">
-    <h2 class="page-title">Login</h2>
+
+<div class="row justify-space-between-md mt-5">
+  <div class="login-card col-6 card">
+    <h2 class="card-header">Login</h2>
     <form class="form login-form">
       <div class="form-group">
-        <label for="email-login">Email:</label>
-        <input class="form-input" type="text" id="login" />
+        <label class="form-label" for="email-login">Email:</label>
+        <input class="form-control" type="text" id="login" />
       </div>
       <div class="form-group">
-        <label for="password-login">Password:</label>
-        <input class="form-input" type="password" id="password-login" />
+        <label class="form-label" for="password-login">Password:</label>
+        <input class="form-control" type="password" id="password-login" />
       </div>
       <div>
-        <label for="managerCheckbox">Staff: </label>
-        <input type="checkbox", id="managerCheck" name="managerCheckbox"/>
+        <label class="form-check-label" for="managerCheckbox">Staff: </label>
+        <input class="form-check-input" type="checkbox", id="managerCheck" name="managerCheckbox"/>
       </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">login</button>
       </div>
     </form>
   </div>
-  <div class="login-card">
-    <h2 class="page-title">Signup</h2>
+  <div class="login-card col-6 card">
+    <h2 class="card-header">Signup</h2>
     <form class="form signup-form">
       <div class="form-group">
-        <label for="username-signup">Full Name:</label>
-        <input class="form-input" type="text" id="username-signup" />
+        <label class="form-label" for="username-signup">Full Name:</label>
+        <input class="form-control" type="text" id="username-signup" />
       </div>
       <div class="form-group">
-        <label for="email-signup">Email:</label>
-        <input class="form-input" type="text" id="email-signup" />
+        <label class="form-label" for="email-signup">Email:</label>
+        <input class="form-control" type="text" id="email-signup" />
       </div>
       <div class="form-group">
-        <label for="password-signup">Password:</label>
-        <input class="form-input" type="password" id="password-signup" />
+        <label class="form-label" for="password-signup">Password:</label>
+        <input class="form-control" type="password" id="password-signup" />
       </div>
       <div class="form-group">
-        <label for="aptNumber">Apartment Number:</label>
-        <input class="form-input" type="number" id="aptNumber" />
+        <label class="form-label" for="aptNumber">Apartment Number:</label>
+        <input class="form-control" type="number" id="aptNumber" />
       </div>
       <div class="form-group">
-        <label for="dept">Dept: (Only for staff)</label>
-        <input class="form-input" type="text" id="dept" />
+        <label class="form-label" for="dept">Dept: (Only for staff)</label>
+        <input class="form-control" type="text" id="dept" />
       </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">signup</button>
