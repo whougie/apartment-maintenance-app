@@ -10,7 +10,6 @@ async function formPopulate(event) {
         try {
             const room = document.querySelector('#room').value
             const issue = document.querySelector('#broken-thing').value
-            console.log(issue, room)
             
             const response = await fetch('/api/issues', {
                 method: 'POST',

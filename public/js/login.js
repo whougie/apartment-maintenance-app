@@ -1,6 +1,3 @@
-console.log(document.querySelector('#login'))
-console.log(document.querySelector('#password-login'))
-
 const loginForm = async (event) => {
     event.preventDefault();
 

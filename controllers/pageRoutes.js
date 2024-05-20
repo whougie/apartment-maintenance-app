@@ -11,8 +11,6 @@ router.get('/', async (req, res) => {
   try {
   const issueData = req.session.manager ? await Issue.findAll() : await Issue.findAll({ where: { tenant_id: req.session.userId } })
   const issues = issueData.map(issue => issue.get({ plain: true }))
-  console.log('14',issues)
-  console.log('15',req.session.userId)
     res.render('homepage', {
       loggedIn: req.session.loggedIn,
       issues
