@@ -40,7 +40,9 @@ const seedDatabase = async () => {
   // Manager]})
   // const serial = withApt.map(apt => apt.get({plain:true}))
   // console.log(serial)
-  process.exit(0);
+  //process.exit(0);
 };
 
-seedDatabase();
+
+
+module.exports = seedDatabase
