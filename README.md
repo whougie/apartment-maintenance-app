@@ -61,21 +61,19 @@ These grades will be seen ONLY by instructional staff
 
 ## Media Attachments
 
-Below is a screen shot of the Home Page (Desktop & Mobile), Results Page, & Gallery.
-![Below is a screen shot of the Home Page (Desktop & Mobile), Results Page, & Gallery.](./assets/images/home-pg-screenshot.png)
-![](./assets/images/mobile-screenshot.png)
+Below is a screen shot of the Home Page (Desktop & Mobile), Issues Page, & Staff-only page.
+![Below is a screen shot of the Home Page (Desktop & Mobile), Issues, & Staff-only page.](./assets/images/desktop.png)
+![](./assets/images/mobile.jpg)
 
-The Results Page.
-![The Results Page.](./assets/images/results-screenshot.png)
+The Issues Page.
+![The Issues Page.](./assets/images/issues.png)
 
-The Gallery Page.
-![The Gallery Page.](./assets/images/gallery-screenshot.png)
+The Staff-only Page.
+![The Staff-only Page.](./assets/images/staff-viewable-only-page.png)
 
-The Company Logo.
-![The Company Logo.](./assets/images/suga.png)
 
-The Presentation.
-[Click Here](https://docs.google.com/presentation/d/1dl8SZWsLcAAwg6KGqU1BPsAire65AYY-4dU5z-Y0A5s/edit?usp=sharing) 
+The Google Slide Presentation.
+[Click Here](https://docs.google.com/presentation/d/1P3dqHA2hslD3pxQaAI1F6albvDtA2HcP2LPgimEGjhg/edit#slide=id.p) 
 
 ## Our Company: The Exception.
 - Amy
@@ -92,36 +90,30 @@ The Presentation.
 <br>
 
 - JavaScript
-   - 
-   - JQuery
-
+   - Vanilla JavaScript
+   - Node.js
+   - Express.js
 <br>
 
 - New technology
-   - Node Package 
-   random-weighted-choice
-
+   - annimate.css from (https://animate.style/)
+  
 <br>
 
-- Misc Software
+- Misc Technology
    - Jira
-   - 
-   - 
-   -
-   -  
-
+   - Render
+   - Sequelize
+   
 <br>
 
 - Presentation Material
    - Google slide
-   - 
-   - 
-
-
-
+   
+   
 ## Deployed Application:
 [Click Here](https://github.com/4Bollard/apartment-maintenance-app) to view the Repository for this project.
 
-[Click Here](https://) to view the deployed version of the web application. 
+[Click Here](https://apartment-maintenance-app.onrender.com/login) to view the deployed version of the web application. 
 
 
