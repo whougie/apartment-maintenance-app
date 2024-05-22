@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
     return;
   }
   try {
-  const issueData = req.session.manager ? await Issue.findAll() : await Issue.findAll({ where: { tenant_id: req.session.userId } })
-  const issues = issueData.map(issue => issue.get({ plain: true }))
+    const issueData = req.session.manager ? await Issue.findAll() : await Issue.findAll({ where: { tenant_id: req.session.userId } })
+    const issues = issueData.map(issue => issue.get({ plain: true }))
     res.render('homepage', {
       loggedIn: req.session.loggedIn,
       issues
@@ -35,7 +35,6 @@ router.get('/issue', (req, res) => {
     res.status(500).json(error)
   }
 });
-
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {

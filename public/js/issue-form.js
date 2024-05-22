@@ -1,8 +1,4 @@
-
-
-
 const submitMessage = document.querySelector('.submit-message')
-
 
 async function formPopulate(event) {
     event.preventDefault();
@@ -10,7 +6,6 @@ async function formPopulate(event) {
         try {
             const room = document.querySelector('#room').value
             const issue = document.querySelector('#broken-thing').value
-            
             const response = await fetch('/api/issues', {
                 method: 'POST',
                 body: JSON.stringify({ issue, room }),
@@ -28,6 +23,5 @@ async function formPopulate(event) {
 }
 
 const buttonSubmit = document.querySelector('.submit-form')
-
 
 buttonSubmit.addEventListener('submit', formPopulate);

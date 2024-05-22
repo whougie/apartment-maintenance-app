@@ -6,6 +6,7 @@
 <div>
     <button class="btn btn-warning" onClick="window.location.href='/issue'"> Maintenance Help Request</button>
     <div class="container">
+        <!-- animate.css  new technology-->
         <h4 class="animate__animated animate__slideInRight">>Active Issues </h4>
         <div class="row" id="active-issues">
             {{#each issues as |issue| }}
@@ -20,6 +21,7 @@
             {{/each}}
         </div>
     </div>
+        <!-- animate.css  new technology-->
     <h4 class="animate__animated animate__slideInRight">>Completed Issues</h4>
     <div class="row" id="completed-issues">
         {{#each issues as |issue| }}

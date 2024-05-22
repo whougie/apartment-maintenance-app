@@ -21,7 +21,6 @@ Handyman.init(
         },
         
     },
-
     {
         sequelize,
         timestamps: false,
@@ -29,7 +28,6 @@ Handyman.init(
         underscored: true,
         modelName: 'handyman'
     }
-
 );
 
 module.exports = Handyman;

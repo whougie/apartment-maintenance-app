@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
 class Issue extends Model {}
 
 Issue.init(
@@ -37,7 +36,7 @@ Issue.init(
                 key: 'id'
             }
         },
-
+        
         handyman_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -47,7 +46,6 @@ Issue.init(
             
         }
     },
-
     {
         sequelize,
         timestamps: true,
@@ -55,7 +53,6 @@ Issue.init(
         underscored: true,
         modelName: 'issue'
     }
-
 );
 
 module.exports = Issue;
