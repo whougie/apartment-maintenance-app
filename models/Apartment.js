@@ -2,7 +2,6 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Apartment extends Model {}
-
 Apartment.init(
     {
         id: {
@@ -27,7 +26,6 @@ Apartment.init(
         //     }
         // }
     },
-
     {
         sequelize,
         timestamps: false,
@@ -35,7 +33,6 @@ Apartment.init(
         underscored: true,
         modelName: 'apartment'
     }
-
 );
 
 module.exports = Apartment;

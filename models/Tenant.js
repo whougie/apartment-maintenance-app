@@ -37,24 +37,22 @@ Tenant.init(
     },
     {
         hooks: {
-          beforeCreate: async(tenantData) => {
-            tenantData.tenant_password = await bcrypt.hash(tenantData.tenant_password, 10);
-            return tenantData;
-          },
-          beforeUpdate: async(tenantData) => {
-            if( tenantData.tenant_password ){
-              tenantData.tenant_password = await bcrypt.hash(tenantData.tenant_password, 10);
-              return tenantData;
-            }
-          },
+            beforeCreate: async(tenantData) => {
+                tenantData.tenant_password = await bcrypt.hash(tenantData.tenant_password, 10);
+                return tenantData;
+            },
+            beforeUpdate: async(tenantData) => {
+                if( tenantData.tenant_password ){
+                    tenantData.tenant_password = await bcrypt.hash(tenantData.tenant_password, 10);
+                    return tenantData;
+                }
+            },
         },
         sequelize,
         underscored: true,
         freezeTableName: true,
         modelName: 'tenant'
     },
-
-
 );
 
 module.exports = Tenant;
