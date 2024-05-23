@@ -86,7 +86,7 @@ The Google Slide Presentation
 - Andrew
 - Kee
 - Ozeghe
-- Whoughie
+- Whougie
 
 ## Acknowledgements & Technology Stacks
 - CSS
@@ -121,7 +121,7 @@ The Google Slide Presentation
    
    
 ## Deployed Application:
-[Click Here](https://github.com/4Bollard/apartment-maintenance-app) to view the Repository for this project.
+[Click Here](https://github.com/whougie/apartment-maintenance-app) to view the Repository for this project.
 
 [Click Here](https://apartment-maintenance-app.onrender.com/login) to view the deployed version of the web application. 
 
